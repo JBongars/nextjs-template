@@ -1,4 +1,4 @@
-name: Docker CI
+name: Test Applications CI
 on:
   pull_request:
     branches: [ "main" ]
@@ -16,11 +16,11 @@ jobs:
 
     - name: Build locally
       run: yarn build
-      
+
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag nextapp:$(date +%s)
 ---
-name: Docker CI
+name: Build and Push Docker CD
 on:
   push:
     branches: [ "main" ]
